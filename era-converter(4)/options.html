@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Era Notation Converter — Site List</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="heading">
+        <h1>Site List</h1>
+        <p class="sub">Choose which sites Era Notation runs on</p>
+      </div>
+    </header>
+
+    <div class="mode-select">
+      <label class="mode-card">
+        <input type="radio" name="filterMode" value="all" id="modeAll" />
+        <span class="mode-title">All sites</span>
+        <span class="mode-desc">Run everywhere (default)</span>
+      </label>
+      <label class="mode-card">
+        <input type="radio" name="filterMode" value="whitelist" id="modeWhitelist" />
+        <span class="mode-title">Only these sites</span>
+        <span class="mode-desc">Whitelist &mdash; run nowhere else</span>
+      </label>
+      <label class="mode-card">
+        <input type="radio" name="filterMode" value="blacklist" id="modeBlacklist" />
+        <span class="mode-title">Except these sites</span>
+        <span class="mode-desc">Blacklist &mdash; run everywhere else</span>
+      </label>
+    </div>
+
+    <div class="editor-block">
+      <div class="editor-label-row">
+        <label for="siteList" class="editor-label">Sites, one per line</label>
+        <button type="button" id="addCurrentSite" class="btn-secondary">
+          + Add current tab
+        </button>
+      </div>
+      <textarea
+        id="siteList"
+        spellcheck="false"
+        placeholder="example.com&#10;wikipedia.org&#10;another-site.co.uk"
+      ></textarea>
+      <p class="hint">
+        Just the domain, one per line — no need for "https://" or "www.".
+        A domain like "example.com" automatically covers its subdomains too.
+      </p>
+    </div>
+
+    <div class="actions">
+      <button type="button" id="save" class="btn-primary">Save</button>
+      <span id="status" class="status-msg"></span>
+    </div>
+
+    <div class="credits">
+      <p>Era Notation Converter <span id="versionTag"></span> &middot; No data collected &mdash; everything runs locally on the page.</p>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

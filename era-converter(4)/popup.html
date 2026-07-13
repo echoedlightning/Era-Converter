@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Era Notation Converter</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <div class="heading">
+      <h1>Era Notation</h1>
+      <p class="sub">CE&nbsp;&rarr;&nbsp;AD &middot; BP&nbsp;&rarr;&nbsp;BC</p>
+    </div>
+    <label class="master-toggle">
+      <input type="checkbox" id="enabled" />
+      <span class="track"><span class="thumb"></span></span>
+    </label>
+  </header>
+
+  <section class="rules" id="rules">
+    <label class="rule">
+      <input type="checkbox" id="convertCE" />
+      <span class="rule-text">
+        <span class="from">CE</span>
+        <span class="arrow">&rarr;</span>
+        <span class="to">AD</span>
+      </span>
+      <span class="rule-desc">Common / Current Era</span>
+    </label>
+
+    <label class="rule">
+      <input type="checkbox" id="convertBCE" />
+      <span class="rule-text">
+        <span class="from">BCE</span>
+        <span class="arrow">&rarr;</span>
+        <span class="to">BC</span>
+      </span>
+      <span class="rule-desc">Before Common Era</span>
+    </label>
+
+    <label class="rule">
+      <input type="checkbox" id="convertBP" />
+      <span class="rule-text">
+        <span class="from">BP</span>
+        <span class="arrow">&rarr;</span>
+        <span class="to">BC</span>
+      </span>
+      <span class="rule-desc">Before Present</span>
+    </label>
+
+    <div class="sub-rules" id="bpSubRules">
+      <label class="sub-rule">
+        <input type="checkbox" id="adjustBPMath" />
+        <span class="sub-rule-text">
+          <span class="sub-rule-title">Adjust the year</span>
+          <span class="sub-rule-desc">Compute the real calendar year instead of just swapping the label &mdash; e.g. "3,000 BP" &rarr; "1051 BC" instead of "3,000 BC"</span>
+        </span>
+      </label>
+
+      <label class="sub-rule">
+        <input type="checkbox" id="convertSpelledOutBP" />
+        <span class="sub-rule-text">
+          <span class="sub-rule-title">Catch spelled-out phrasing</span>
+          <span class="sub-rule-desc">Also shorten "12,000 Before Present" &rarr; "12,000 BC" (label only, no year math)</span>
+        </span>
+      </label>
+    </div>
+  </section>
+
+  <section class="options">
+    <label class="option-row">
+      <input type="checkbox" id="traditionalOrder" />
+      <span class="sub-rule-text">
+        <span class="sub-rule-title">Traditional word order</span>
+        <span class="sub-rule-desc">"AD 500" instead of "500 AD". BC/BCE always stay after the year either way.</span>
+      </span>
+    </label>
+  </section>
+
+  <section class="filter">
+    <div class="filter-heading">
+      <span class="sub-rule-title">Site filter</span>
+      <span class="filter-status" id="filterStatus">&nbsp;</span>
+    </div>
+
+    <div class="mode-pills" id="modePills">
+      <label class="mode-pill">
+        <input type="radio" name="filterMode" value="all" id="modeAll" />
+        <span>All sites</span>
+      </label>
+      <label class="mode-pill">
+        <input type="radio" name="filterMode" value="whitelist" id="modeWhitelist" />
+        <span>Only these</span>
+      </label>
+      <label class="mode-pill">
+        <input type="radio" name="filterMode" value="blacklist" id="modeBlacklist" />
+        <span>Except these</span>
+      </label>
+    </div>
+
+    <button type="button" id="openOptions" class="btn-link">
+      Edit site list&nbsp;&rarr;
+    </button>
+  </section>
+
+  <footer>
+    <button type="button" id="reloadPage" class="btn-primary">Reload page to apply</button>
+    <p id="count">&nbsp;</p>
+  </footer>
+
+  <div class="credits">
+    <p>Era Notation Converter <span id="versionTag"></span></p>
+    <p>No data collected &mdash; everything runs locally on the page.</p>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
